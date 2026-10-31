@@ -46,7 +46,55 @@
       result.innerHTML =
         "<p>Verification system is being connected to the secure member database.</p>";
     }
-  </script>
+  </script<script>
+async function verifyCredential() {
+  const code = document
+    .getElementById("verificationCode")
+    .value
+    .trim()
+    .toUpperCase();
+
+  const result = document.getElementById("result");
+
+  if (!code) {
+    result.innerHTML = "<p>Please enter a verification code.</p>";
+    return;
+  }
+
+  result.innerHTML = "<p>Checking credential...</p>";
+
+  try {
+    const response = await fetch("members.json");
+    const data = await response.json();
+
+    const member = data.members.find(
+      item => item.credentialCode.toUpperCase() === code
+    );
+
+    if (!member) {
+      result.innerHTML =
+        "<p><strong>Credential not found.</strong></p>";
+      return;
+    }
+
+    result.innerHTML = `
+      <div class="card">
+        <h2>Credential Verified</h2>
+        <p><strong>Name:</strong> ${member.fullName}</p>
+        <p><strong>Member ID:</strong> ${member.memberId}</p>
+        <p><strong>Position:</strong> ${member.position}</p>
+        <p><strong>Status:</strong> ${member.status}</p>
+        <p><strong>Issue Date:</strong> ${member.issueDate}</p>
+        <p><strong>Expiry Date:</strong> ${member.expiryDate}</p>
+      </div>
+    `;
+
+  } catch (error) {
+    result.innerHTML =
+      "<p>Unable to connect to the credential database.</p>";
+  }
+}
+
 
 </body>
 </html>
