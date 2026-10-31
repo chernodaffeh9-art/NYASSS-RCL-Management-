@@ -1,0 +1,22 @@
+{
+  "members": [
+    {
+      "credentialCode": "NYASSS-TEST-001",
+      "memberId": "NYRCL-0001",
+      "fullName": "TEST MEMBER",
+      "position": "Link Member",
+      "status": "ACTIVE",
+      "issueDate": "2026-10-31",
+      "expiryDate": "2027-10-31"
+    },
+    {
+      "credentialCode": "NYASSS-TEST-002",
+      "memberId": "NYRCL-0002",
+      "fullName": "TEST LEADER",
+      "position": "Link Leader",
+      "status": "ACTIVE",
+      "issueDate": "2026-10-31",
+      "expiryDate": "2027-10-31"
+    }
+  ]
+}
