@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYASSS-RCL Management</title>
+</head>
+<body>
+
+  <h1>NYASSS-RCL Management</h1>
+
+  <p>
+    New Yundum Academic Senior Secondary School Red Cross Link
+  </p>
+
+  <hr>
+
+  <h2>Credential Verification</h2>
+
+  <p>
+    Enter a credential verification code to check an authorized
+    NYASSS-RCL credential.
+  </p>
+
+  <input
+    type="text"
+    id="verificationCode"
+    placeholder="Enter verification code"
+  >
+
+  <button onclick="verifyCredential()">Verify</button>
+
+  <div id="result"></div>
+
+  <script>
+    function verifyCredential() {
+      const code = document.getElementById("verificationCode").value.trim();
+      const result = document.getElementById("result");
+
+      if (!code) {
+        result.innerHTML = "<p>Please enter a verification code.</p>";
+        return;
+      }
+
+      result.innerHTML =
+        "<p>Verification system is being connected to the secure member database.</p>";
+    }
+  </script>
+
+</body>
+</html>
